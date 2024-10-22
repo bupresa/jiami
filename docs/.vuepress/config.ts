@@ -59,3 +59,7 @@ module.exports = defineHopeConfig({
   },
   themeConfig,
 });
+set -o pipefail && arch -"${ARCH}" xcodebuild -workspace CodeEdit.xcworkspace \
+           -scheme CodeEdit \
+           -destination "platform=OS X,arch=${ARCH}" \
+           clean test | xcpretty
